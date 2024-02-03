@@ -5,4 +5,4 @@ from .models import Post
 # Create your views here.
 def base(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'tools/base.html', {})
+    return render(request, 'tools/base.html', {'posts': posts})
